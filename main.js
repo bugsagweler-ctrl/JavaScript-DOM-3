@@ -20,6 +20,7 @@ function showModalPromise() {
 }
 
 // Hide modal on page load
+document.querySelector(".modal").style.display = "none";
 
 function validateLogin(event) {
     event.preventDefault();
