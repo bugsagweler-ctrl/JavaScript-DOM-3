@@ -9,15 +9,19 @@ const retryBtn = modal.querySelector("button");
 
 // Hide modal by default
 modal.style.display = "none";
+modal.style.opacity = 0;
+modal.style.transition = "opacity 0.3s ease-in-out";
 
-// Show modal
+// Show modal with fade
 function showModal() {
     modal.style.display = "flex";
+    setTimeout(() => { modal.style.opacity = 1; }, 10);
 }
 
-// Hide modal
+// Hide modal with fade
 function hideModal() {
-    modal.style.display = "none";
+    modal.style.opacity = 0;
+    setTimeout(() => { modal.style.display = "none"; }, 300);
 }
 
 // Retry button closes modal
@@ -29,7 +33,7 @@ function validateCredentials(username, password) {
         const validUsername = "admin";
         const validPassword = "1234";
 
-        setTimeout(() => { // simulate async
+        setTimeout(() => { // simulate async check
             if(username === validUsername && password === validPassword) {
                 resolve();
             } else {
@@ -41,14 +45,14 @@ function validateCredentials(username, password) {
 
 // Handle form submit
 loginForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // prevent reload
+    event.preventDefault(); // prevent page reload
 
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
 
     validateCredentials(username, password)
         .then(() => {
-            // Correct → redirect
+            // Correct → redirect to index.html
             window.location.href = "index.html";
         })
         .catch(() => {
@@ -86,4 +90,9 @@ function toggleNav() {
             link.style.transition = "opacity 0.5s ease-in-out";
         });
     }
+}
+
+// Attach toggle function to button
+if(toggleBtn){
+    toggleBtn.addEventListener("click", toggleNav);
 }
