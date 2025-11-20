@@ -239,10 +239,16 @@ background-size: 50%;
 }
 
 .nav-sidebar ul {
-padding-top: 15px;
-overflow: hidden;
-visibility: hidden;
+    padding-top: 15px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 0; /* collapsed */
 }
+
+.nav-sidebar ul.open {
+    max-height: 500px; /* enough to show all links */
+}
+
 
 .nav-sidebar ul li{
 line-height: 60px;

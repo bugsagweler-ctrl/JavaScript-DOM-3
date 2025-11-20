@@ -76,23 +76,22 @@ function toggleNav() {
     if(sidebarOpen) {
         sidebar.style.width = "272px";
         toggleBtn.style.transform = "rotate(90deg)";
+
+        // Show links
+        sidebar.classList.add("open");
         sidebarLinks.forEach(link => {
             link.style.opacity = "1";
             link.style.visibility = "visible";
-            link.style.transition = "opacity 0.5s ease-in-out";
         });
     } else {
         sidebar.style.width = "50px";
         toggleBtn.style.transform = "rotate(0deg)";
+
+        // Hide links
+        sidebar.classList.remove("open");
         sidebarLinks.forEach(link => {
             link.style.opacity = "0";
             link.style.visibility = "hidden";
-            link.style.transition = "opacity 0.5s ease-in-out";
         });
     }
-}
-
-// Attach toggle function to button
-if(toggleBtn){
-    toggleBtn.addEventListener("click", toggleNav);
 }
