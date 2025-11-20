@@ -14,6 +14,10 @@ window.onload = function () {
 function validateLogin() {
     const username = document.getElementById("uname").value.trim();
     const password = document.getElementById("pwd").value.trim();
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    validateLogin();
+});
 
     // Hardcoded credentials for demo
     const correctUsername = "admin";
@@ -23,7 +27,7 @@ function validateLogin() {
         // Redirect to homepage
         window.location.href = "index.html";
     } else {
-        showModal();
+        showModal("The LOGIN are incorrect");
     }
 }
 
