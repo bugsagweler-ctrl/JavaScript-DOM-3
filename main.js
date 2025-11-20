@@ -11,37 +11,42 @@ window.onload = function () {
 };
 
 // Validate Login
-function validateLogin() {
-    const username = document.getElementById("uname").value.trim();
-    const password = document.getElementById("pwd").value.trim();
-    document.getElementById("login-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    validateLogin();
+function validateCredentials(username, password) {
+  return new Promise((resolve, reject) => {
+
+    // Simulated database user
+    const storedUser = {
+      username: "admin",
+      password: "1234"
+    };
+
+    setTimeout(() => {
+      if (username === storedUser.username && password === storedUser.password) {
+        resolve("Login successful!");
+      } else {
+        reject("Incorrect username or password.");
+      }
+    }, 5000); // simulating delay
+
+  });
+}
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  validateCredentials(username, password)
+    .then((message) => {
+      console.log(message);
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      console.error(error);
+      showModal(error); // your modal popup
+    });
 });
-
-    // Hardcoded credentials for demo
-    const correctUsername = "admin";
-    const correctPassword = "1234";
-
-    if (username === correctUsername && password === correctPassword) {
-        // Redirect to homepage
-        window.location.href = "index.html";
-    } else {
-        showModal("The LOGIN are incorrect");
-    }
-}
-
-// Show modal
-function showModal() {
-    const modal = document.querySelector(".modal");
-    if (modal) modal.style.display = "block";
-}
-
-// Hide modal
-function dismissModal() {
-    const modal = document.querySelector(".modal");
-    if (modal) modal.style.display = "none";
-}
 
 
 /**************************************
