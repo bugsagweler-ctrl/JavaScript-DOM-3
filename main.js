@@ -6,14 +6,11 @@ const modal = document.querySelector(".modal");
 const retryBtn = modal.querySelector("button");
 
 
-
-// Hide modal with fade
 function hideModal() {
     modal.style.opacity = 0;
     setTimeout(() => { modal.style.display = "none"; }, 300);
 }
 
-// Retry button closes modal
 retryBtn.addEventListener("click", hideModal);
 
 
@@ -47,3 +44,25 @@ loginForm.addEventListener("submit", function(event) {
         });
 });
 
+let toggleNavStatus = false;
+
+let toggleNav =function(){
+    let getSidebar = document.querySelector(".nav-sidebar");
+    let getSidebarUl = document.querySelector(".nav-sidebar ul");
+    let getSidebarTitle = document.querySelector(".nav-sidebar span");
+    let getSidebarLinks = document.querySelectorAll(".nav-sidebar a");
+
+    if (toggleNavStatus === false){
+      getSidebarUl.style.visisbility = "visible";
+      getSidebar.style.width = "272px";
+      gitSidebarTitle.style.opacity = "0.5";
+
+      let arrayLength = getSidebarLinks.length;
+      for(let i = 0; i < arrayLength.length; i++){
+        getSidebarLinks[i].style.opacity = "1";
+      }
+      toggleNavStatus = true;
+    }
+
+
+}

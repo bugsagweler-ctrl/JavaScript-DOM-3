@@ -192,11 +192,7 @@ opacity: 1;
 background-color: #42d4f5;
 background-size: 50%;
 
-
-
-
 }
-
 
 .nav-main ul {
 
@@ -244,12 +240,12 @@ overflow: hidden;
 visibility: hidden;
 }
 
-.nav-sidebar ul li{
+.nav-sidebar ul li {
 line-height: 60px;
 list-style: none;
 }
 
-.nav-sidebar ul li span, .nav-sidebar ul li a{
+.nav-sidebar ul li span, .nav-sidebar ul li a {
 display: block;
 height: 60px;
 padding: 0 10px;
@@ -259,7 +255,7 @@ color: #FFF;
 font-size:16px;
 font-family: inherit;
 white-space: nowrap;
-/*opacity: 0;*/
+opacity: 0;
 transition: all 0.5s ease-in-out;
 }
 
