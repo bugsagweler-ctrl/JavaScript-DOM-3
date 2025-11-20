@@ -29,26 +29,24 @@
         <div class="tbox">
             <input id="uname" type="text" name="" placeholder="Username" value="">
         </div>
-
         <div class="tbox">
             <input id="pwd" type="password" name="" placeholder="Password" value="">
         </div>
-
-        <input class="btn" type="submit" name="" value="LOG IN">
-
+           <input class="btn" type="submit" name="" value="LOG IN" onclick="validateLogin()">
     </form>
 
     <a class="b1" href="#">FORGOT PASSWORD?</a>
     <a class="b2" href="#">CREATE AN ACCOUNT</a>
   </div>
 
-  <div class="modal" id="errorModal">
+  <div class="modal">
     <div class="modal-header">
       <img src="alert_icon.png" alt="">
     </div>
     <p>Incorrect username or password</p>
-    <button class="btn" id="retryBtn">TRY AGAIN</button>
-</div>
+    <button class="btn" type="button" name="button" onclick="dismissModal()">TRY AGAIN</button>
+  </div>
+
 </div>
 
 </body>
