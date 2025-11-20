@@ -36,7 +36,7 @@ margin: auto;
 
 width: 360px;
 height: 600px;
-background: url("../img/login-bg.png");
+background: url("login-bg.png");
 background-repeat: no-repeat;
 position: absolute;
 top:50%;
@@ -178,7 +178,7 @@ opacity: 1;
   width:60px;
   height:100%;
   background-color: #F98F39;
-  background-image:url("../img/menu.png");
+  background-image:url("menu.png");
   background-repeat: no-repeat;
   background-size: 40%;
   background-position: center;
