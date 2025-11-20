@@ -1,52 +1,58 @@
-/**************************************
- * LOGIN VALIDATION + MODAL MANAGEMENT
- **************************************/
+const loginForm = document.getElementById("login-form");
+const usernameInput = document.getElementById("uname");
+const passwordInput = document.getElementById("pwd");
+const modal = document.querySelector(".modal");
 
-// Hide modal when page loads
-window.onload = function () {
-    const modal = document.querySelector(".modal");
-    if (modal) {
-        modal.style.display = "none";
-    }
-};
 
-// Validate Login
+
+modal.style.display = "none";
+
+
+
 function validateCredentials(username, password) {
   return new Promise((resolve, reject) => {
 
-    // Simulated database user
-    const storedUser = {
-      username: "admin",
-      password: "1234"
-    };
+    
+    const correctUser = "admin";
+    const correctPass = "1234";
 
+    
     setTimeout(() => {
-      if (username === storedUser.username && password === storedUser.password) {
-        resolve("Login successful!");
+      if (username === correctUser && password === correctPass) {
+        resolve("Login successful");
       } else {
-        reject("Incorrect username or password.");
+        reject("Incorrect username or password");
       }
-    }, 5000); // simulating delay
+    }, 600);
 
   });
 }
 
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+
+function showModal() {
+  modal.style.display = "block";
+}
+
+function dismissModal() {
+  modal.style.display = "none";
+}
+
+
+function validateLogin(event) {
+  event.preventDefault(); // stops form from refreshing page
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
 
   validateCredentials(username, password)
-    .then((message) => {
-      console.log(message);
-      window.location.href = "index.html";
+    .then(() => {
+      window.location.href = "index.html"; // redirect on success
     })
-    .catch((error) => {
-      console.error(error);
-      showModal(error); // your modal popup
+    .catch(() => {
+      showModal();   // show modal on failed login
     });
-});
+}
+
 
 
 /**************************************
