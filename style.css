@@ -151,7 +151,7 @@ opacity: 1;
 
 /* css for modal */
 
-.modal{
+.modal {
   background-color: white;
   position: absolute;
   top: 33%;
@@ -183,7 +183,7 @@ opacity: 1;
   background-size: 40%;
   background-position: center;
   cursor: pointer;
-  transition-duration: .25s;
+  transition-duration: 0.25s;
 
 
 }
@@ -209,7 +209,7 @@ background-size: 50%;
 
 }
 
-.nav-main ul li a{
+.nav-main ul li a {
   display: block;
   height:100%;
   padding: 0 10px;
@@ -221,7 +221,7 @@ background-size: 50%;
 
 }
 
-.nav-sidebar{
+.nav-sidebar {
 
   position: fixed;
   left:0;
