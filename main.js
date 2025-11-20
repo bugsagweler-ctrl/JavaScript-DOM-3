@@ -3,18 +3,30 @@ const usernameInput = document.getElementById("uname");
 const passwordInput = document.getElementById("pwd");
 const modal = document.querySelector(".modal");
 
+function showModalPromise() {
+    return new Promise((resolve) => {
+        const modal = document.getElementById("errorModal");
+        const retryBtn = document.getElementById("retryBtn");
 
+        // Show modal
+        modal.style.display = "flex";
+
+        // When TRY AGAIN is clicked → hide modal + resolve Promise
+        retryBtn.onclick = () => {
+            modal.style.display = "none";
+            resolve("closed");
+        };
+    });
+}
 
 // Hide modal on page load
-document.querySelector(".modal").style.display = "none";
 
 function validateLogin(event) {
-    event.preventDefault();  // Stop form submission
+    event.preventDefault();
 
-    const username = document.getElementById("uname").value.trim();
-    const password = document.getElementById("pwd").value.trim();
+    const username = document.getElementById("uname").value;
+    const password = document.getElementById("pwd").value;
 
-    // PROMISE for credentials validation
     const loginPromise = new Promise((resolve, reject) => {
         if (username === "admin" && password === "1234") {
             resolve();
@@ -25,24 +37,17 @@ function validateLogin(event) {
 
     loginPromise
         .then(() => {
-            // Redirect on success
-            window.location.href = "index.html";
+            window.location.href = "index.html"; // success
         })
         .catch(() => {
-            // Show modal on failure
-            showModal();
+            // Show modal as a promise
+            showModalPromise().then(() => {
+                console.log("User closed modal. Ready to try again.");
+            });
         });
 }
 
-function showModal() {
-    const modal = document.querySelector(".modal");
-    modal.style.display = "flex";    // FLEX = required for centering
-}
 
-function dismissModal() {
-    const modal = document.querySelector(".modal");
-    modal.style.display = "none";
-}
 
 
 
