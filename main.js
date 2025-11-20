@@ -61,8 +61,8 @@ let toggleNav =function(){
       for(let i = 0; i < arrayLength.length; i++){
         getSidebarLinks[i].style.opacity = "1";
       }
+      
       toggleNavStatus = true;
+
     }
-
-
 }
