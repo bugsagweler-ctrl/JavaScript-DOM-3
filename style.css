@@ -1,3 +1,5 @@
+
+
 .home-body {
 background-color: #F1F1F1;
 margin: auto;
@@ -176,9 +178,9 @@ opacity: 1;
   width:60px;
   height:100%;
   background-color: #F98F39;
-  background-image:url("menu.png");
+  background-image:url("img/menu.png");
   background-repeat: no-repeat;
-  background-size: 40%;
+  background-size: 100%;
   background-position: center;
   cursor: pointer;
   transition-duration: .25s;
@@ -190,14 +192,9 @@ opacity: 1;
 background-color: #42d4f5;
 background-size: 50%;
 
-
-
-
 }
 
-
 .nav-main ul {
-
   display: flex;
   flex-wrap: wrap;
   padding-left: 15px;
@@ -237,14 +234,28 @@ background-size: 50%;
 }
 
 .nav-sidebar ul {
-    padding-top: 15px;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-    max-height: 0; /* collapsed */
+padding-top: 15px;
+overflow: hidden;
+visibility: hidden;
 }
 
-.nav-sidebar ul.open {
-    max-height: 500px; /* enough to show all links */
+.nav-sidebar ul li{
+line-height: 60px;
+list-style: none;
+}
+
+.nav-sidebar ul li span, .nav-sidebar ul li a{
+display: block;
+height: 60px;
+padding: 0 10px;
+text-decoration: none;
+text-transform: uppercase;
+color: #FFF;
+font-size:16px;
+font-family: inherit;
+white-space: nowrap;
+/*opacity: 0;*/
+transition: all 0.5s ease-in-out;
 }
 
 .nav-sidebar ul li a:hover{
