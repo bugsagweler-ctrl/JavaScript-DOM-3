@@ -5,53 +5,45 @@ const modal = document.querySelector(".modal");
 
 
 
-modal.style.display = "none";
+// Hide modal on page load
+document.querySelector(".modal").style.display = "none";
 
+function validateLogin(event) {
+    event.preventDefault();  // Stop form submission
 
+    const username = document.getElementById("uname").value.trim();
+    const password = document.getElementById("pwd").value.trim();
 
-function validateCredentials(username, password) {
-  return new Promise((resolve, reject) => {
+    // PROMISE for credentials validation
+    const loginPromise = new Promise((resolve, reject) => {
+        if (username === "admin" && password === "1234") {
+            resolve();
+        } else {
+            reject();
+        }
+    });
 
-    
-    const correctUser = "admin";
-    const correctPass = "1234";
-
-    
-    setTimeout(() => {
-      if (username === correctUser && password === correctPass) {
-        resolve("Login successful");
-      } else {
-        reject("Incorrect username or password");
-      }
-    }, 600);
-
-  });
+    loginPromise
+        .then(() => {
+            // Redirect on success
+            window.location.href = "index.html";
+        })
+        .catch(() => {
+            // Show modal on failure
+            showModal();
+        });
 }
 
-
 function showModal() {
-  modal.style.display = "block";
+    const modal = document.querySelector(".modal");
+    modal.style.display = "flex";    // FLEX = required for centering
 }
 
 function dismissModal() {
-  modal.style.display = "none";
+    const modal = document.querySelector(".modal");
+    modal.style.display = "none";
 }
 
-
-function validateLogin(event) {
-  event.preventDefault(); // stops form from refreshing page
-
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-
-  validateCredentials(username, password)
-    .then(() => {
-      window.location.href = "index.html"; // redirect on success
-    })
-    .catch(() => {
-      showModal();   // show modal on failed login
-    });
-}
 
 
 
