@@ -249,26 +249,6 @@ background-size: 50%;
     max-height: 500px; /* enough to show all links */
 }
 
-
-.nav-sidebar ul li{
-line-height: 60px;
-list-style: none;
-}
-
-.nav-sidebar ul li span, .nav-sidebar ul li a{
-display: block;
-height: 60px;
-padding: 0 10px;
-text-decoration: none;
-text-transform: uppercase;
-color: #FFF;
-font-size:16px;
-font-family: inherit;
-white-space: nowrap;
-/*opacity: 0;*/
-transition: all 0.5s ease-in-out;
-}
-
 .nav-sidebar ul li a:hover{
 background-color: #525354
 
